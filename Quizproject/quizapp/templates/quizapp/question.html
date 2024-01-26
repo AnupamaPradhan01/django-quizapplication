@@ -1,0 +1,36 @@
+{% extends 'quizapp/base.html' %}
+{% load static %}
+{% block content %}
+{% comment %} form start {% endcomment %}
+<form action="{% url 'submit' quiz.id %}" method="POST">
+{% csrf_token %}
+{% comment %} parent div start {% endcomment %}
+<div class="row mt-5">
+  {{quiz.topic}}
+    {% comment %} card div start {% endcomment %}
+    {% comment %} question model for loop start {% endcomment %}
+    {% for ques in ques %} 
+    <div class="card mb-5 bg-light" style="width: 48rem;">  
+        <div class="card-body"> 
+          <h5 class="card-title">{{ques.question}}</h5>
+          {% comment %} choices model for loop start {% endcomment %}
+          {% for ch in ques.choices.all %}
+          <p class="card-text">
+            <input type="radio" id="ch_{{ch.id}}" name="ques_{{ques.id}}" value="{{ch.id}}"/>
+            <label for="ch_{{ch.id}}">{{ch.text}}</label>
+          </p>
+          {% endfor %}
+          {% comment %} choices model for loop end {% endcomment %}
+        </div> 
+      </div>
+      {% endfor %}
+      {% comment %} question model for loop end {% endcomment %}
+    {% comment %} card div end {% endcomment %}
+</div>
+<input type="submit" value="Submit" class="btn btn-primary">
+{% comment %} parent div end {% endcomment %}
+
+</form>
+{% comment %} form end {% endcomment %}
+
+{% endblock content %}

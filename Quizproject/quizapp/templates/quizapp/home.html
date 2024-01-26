@@ -1,0 +1,17 @@
+{% extends 'quizapp/base.html' %}
+{% block content %}
+<div class="row mt-5 grid">
+    {% for q in quizinfo %}
+    <div class="card text-center ms-5" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{q.topic}}</h5>
+          <p class="card-text">{{q.desc}}</p>
+          
+          <a href="{% url 'question' q.id%}" class="btn btn-primary">Attempt Quiz</a>
+         
+        </div>
+      </div>
+      {% endfor %}  
+  </div>
+   
+{% endblock content %}

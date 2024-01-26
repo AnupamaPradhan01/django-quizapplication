@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}{% endblock title %}
+    {% comment %} start of css files  {% endcomment %}
+    <link rel="stylesheet" href="{% static 'quizapp/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'quizapp/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'quizapp/css/style.css' %}">
+    {% comment %} end of css files {% endcomment %}
+</head>
+<body>
+    {% include 'quizapp/nav.html' %}
+    <div class="container">
+        {% block content %}{% endblock content %}
+    </div>
+    
+      
+    
+
+
+
+
+
+
+
+    {% comment %} start of js file {% endcomment %}
+    <script src="{% static 'quizapp/js/all.min.js' %}"></script>
+    <script src="{% static 'quizapp/js/bootstrap.js' %}"></script>
+    <script src="{% static 'quizapp/js/jquery.js' %}"></script>
+    <script src="{% static 'quizapp/js/popper.js' %}"></script>
+    {% comment %} end of js file {% endcomment %}
+</body>
+</html>
